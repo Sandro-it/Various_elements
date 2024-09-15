@@ -1,0 +1,82 @@
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 26px;
+  border-radius: 50px;
+  background-color: #031a3b; /* Темно-сіро-синій фон */
+  transition: background-color 0.5s;
+  cursor: pointer;
+}
+
+.theme-switcher input {
+  display: none; /* Приховуємо стандартний чекбокс */
+}
+
+.theme-switcher label {
+  position: relative;
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.theme-switcher .slider {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-switcher .iconSun {
+  width: 17px;
+  height: 17px;
+  color: #fdba03; /* Жовтий колір для сонця та місяця */
+}
+
+.theme-switcher .iconMoon {
+  width: 15px;
+  height: 15px;
+  color: #fdba03; /* Жовтий колір для сонця та місяця */
+}
+
+.theme-switcher .iconSun {
+  position: absolute;
+  left: 8px; /* Точна позиція для сонця */
+  transition: transform 0.5s ease; /* Додаємо плавну анімацію для обертання */
+}
+
+.theme-switcher .iconMoon {
+  position: absolute;
+  right: 8px; /* Точна позиція для місяця */
+  transform: scaleX(-1); /* Віддзеркалення по вертикалі */
+  transition: transform 0.5s ease; /* Додаємо плавну анімацію для обертання */
+}
+
+.theme-switcher input:checked + label .iconSun {
+  transform: rotate(180deg); /* Пів оберта для сонця при натисканні */
+}
+
+.theme-switcher input:checked + label .iconMoon {
+  transform: scaleX(-1) rotate(-120deg); /* Пів оберта для місяця при натисканні */
+}
+
+.theme-switcher label > span::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  width: 19px;
+  height: 19px;
+  border-radius: 50px;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  background-color: #b9bebe; /* Кольорова кнопка */
+  transition: 0.5s;
+}
+
+.theme-switcher input:checked + label > span::before {
+  left: calc(100% - 25px); /* Коректуємо позицію кнопки праворуч */
+}

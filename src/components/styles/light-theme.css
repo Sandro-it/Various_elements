@@ -1,0 +1,14 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --switch-bg-color: #f0f8ff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.theme-switcher {
+  background-color: var(--switch-bg-color);
+}

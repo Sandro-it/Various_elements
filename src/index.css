@@ -1,0 +1,52 @@
+/* Підключаємо стилі для обох тем через CSS variables */
+@import "./components/styles/light-theme.css";
+@import "./components/styles/dark-theme.css";
+
+/* Стилі для темної теми */
+html.dark {
+  --background-color: #1e1e1e;
+  --text-color: #ffffff;
+  --switch-bg-color: #191a25;
+}
+
+/* Стилі для світлої теми (за замовчуванням) */
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --switch-bg-color: #f0f8ff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.theme-switcher {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 26px;
+  border-radius: 50px;
+  cursor: pointer;
+  background-color: var(--switch-bg-color);
+}
+
+.theme-switcher .slider {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 17px;
+  height: 17px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.theme-switcher input:checked + label .slider {
+  left: calc(100% - 23px);
+}
