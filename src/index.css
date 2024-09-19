@@ -1,19 +1,25 @@
 /* Підключаємо стилі для обох тем через CSS variables */
-@import "./components/styles/light-theme.css";
-@import "./components/styles/dark-theme.css";
+/* @import "./components/theme-switcher/light-theme.css";
+@import "./components/theme-switcher/dark-theme.css"; */
 
 /* Стилі для темної теми */
 html.dark {
   --background-color: #1e1e1e;
-  --text-color: #ffffff;
+  --text-color: #ccc;
   --switch-bg-color: #191a25;
+  --input-background-color: #333; /* Фон інпутів для темної теми */
+  --input-text-color: #fff; /* Колір тексту для темної теми */
+  --input-border-color: #555; /* Колір бордюра для темної теми */
 }
 
 /* Стилі для світлої теми (за замовчуванням) */
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
-  --switch-bg-color: #f0f8ff;
+  --switch-bg-color: #3d5c86;
+  --input-background-color: #ffffff; /* Фон інпутів для світлої теми */
+  --input-text-color: #000000; /* Колір тексту для світлої теми */
+  --input-border-color: #cccccc; /* Колір бордюра для світлої теми */
 }
 
 body {
@@ -22,17 +28,27 @@ body {
   transition: background-color 0.5s, color 0.5s;
 }
 
+input,
+textarea {
+  background-color: var(
+    --input-background-color
+  ); /* Застосовуємо фон інпутів */
+  color: var(--input-text-color); /* Колір тексту інпутів */
+  border: 1px solid var(--input-border-color); /* Колір бордюра інпутів */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Плавна зміна кольорів */
+}
+
 .theme-switcher {
-  position: relative;
+  /* position: relative;
   display: inline-block;
   width: 60px;
   height: 26px;
   border-radius: 50px;
-  cursor: pointer;
+  cursor: pointer; */
   background-color: var(--switch-bg-color);
 }
 
-.theme-switcher .slider {
+/* .theme-switcher .slider {
   position: absolute;
   top: 50%;
   left: 5px;
@@ -45,8 +61,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
-.theme-switcher input:checked + label .slider {
+/* .theme-switcher input:checked + label .slider {
   left: calc(100% - 23px);
-}
+} */

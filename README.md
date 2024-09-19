@@ -115,3 +115,138 @@ const handleThemeChange = (theme) => {
 9. **Ліцензія** — інформація про умови використання компонента.
 
 ```
+
+# EmailForm Component
+
+**EmailForm** — це універсальний компонент форми для надсилання електронних листів, який підтримує надсилання текстових повідомлень та файлів через сервіс EmailJS. Компонент легко налаштовується та може використовуватися в будь-якому React-проєкті. Також він підтримує перемикання теми (світла/темна) через CSS змінні або окремі файли стилів.
+
+## Встановлення
+
+1. Скопіюйте файли `EmailForm.jsx` і `EmailForm.module.css` у вашу папку з компонентами.
+2. Скопіюйте файли темної та світлої теми (`light-theme.css` і `dark-theme.css`) у папку з темами або стилями вашого проєкту.
+3. Встановіть EmailJS для інтеграції з вашим проєктом:
+
+```bash
+npm install emailjs-com
+
+Створіть .env файл у корені проєкту та додайте ваші змінні для EmailJS:
+makefile
+Копіювати код
+
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_USER_ID=your_user_id
+
+Переконайтеся, що ці змінні доступні в середовищі вашого проєкту.
+
+Використання
+Базове використання
+Після того, як компонент EmailForm буде доданий у ваш проєкт, ви можете використовувати його в будь-якому місці:
+
+jsx
+Копіювати код
+import EmailForm from "./components/EmailForm";
+
+const App = () => {
+  return (
+    <div>
+      <EmailForm />
+    </div>
+  );
+};
+
+export default App;
+
+Підключення тем
+Існує два варіанти підключення тем:
+
+Варіант 1: Імпорт файлів тем у основний файл стилів
+Ви можете імпортувати файли темної та світлої теми у вашому основному файлі стилів, наприклад, в index.css:
+
+css
+Копіювати код
+
+@import "./components/theme-switcher/light-theme.css";
+@import "./components/theme-switcher/dark-theme.css";
+
+Ці файли містять змінні CSS, які використовуються для перемикання теми через компонент ThemeSwitcher або через логіку зміни теми у вашому проєкті.
+
+Варіант 2: Використання класу dark через логіку компонента
+Компонент може самостійно керувати додаванням класу dark до елемента <html>, щоб змінювати тему без імпорту файлів стилів. Для цього достатньо переконатися, що в компоненті використовується логіка перемикання теми, наприклад:
+
+jsx
+Копіювати код
+
+useEffect(() => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  if (!currentTheme) {
+    document.documentElement.setAttribute("data-theme", "light");
+  }
+}, []);
+
+const toggleTheme = () => {
+  const currentTheme = document.documentElement.getAttribute("data-theme");
+  const newTheme = currentTheme === "light" ? "dark" : "light";
+  document.documentElement.setAttribute("data-theme", newTheme);
+};
+
+Стилі для тем:
+Стилі для світлої теми (light-theme.css):
+css
+Копіювати код
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --input-background-color: #ffffff;
+  --input-text-color: #000000;
+  --input-border-color: #cccccc;
+  --button-bg-color: #132946;
+  --button-text-color: white;
+  --button-hover-bg-color: #244e86;
+  --button-hover-text-color: #ffffff;
+}
+
+Стилі для темної теми (dark-theme.css):
+css
+Копіювати код
+
+html.dark {
+  --background-color: #1e1e1e;
+  --text-color: #ccc;
+  --input-background-color: #333;
+  --input-text-color: #fff;
+  --input-border-color: #555;
+  --button-bg-color: #444;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #666;
+  --button-hover-text-color: #ffffff;
+}
+
+Надсилання файлів
+
+Компонент EmailForm підтримує можливість надсилання файлів через EmailJS. Проте варто зазначити, що у безкоштовній версії EmailJS існує обмеження на розмір змінних (включаючи файли, закодовані у форматі base64) до 50KB.
+
+Обмеження EmailJS:
+Максимальний розмір змінних: 50KB.
+Кодування файлів у форматі base64 додає приблизно 33% до початкового розміру файлу.
+Якщо файл перевищує цей ліміт після кодування, EmailJS поверне помилку 413 Payload Too Large.
+Що робити, якщо файл занадто великий:
+Стиснути файл перед надсиланням.
+Надіслати посилання на файл, завантаживши його до хмарного сховища (Google Drive, Dropbox, AWS S3 тощо).
+Оновити до платного плану EmailJS.
+
+Налаштування стилів
+Компонент використовує модульні стилі з файлу EmailForm.module.css. Ви можете легко налаштувати їх під свої потреби. Також підтримується темна тема через CSS змінні або клас dark на елементі <html>.
+
+Логіка відправки форми
+Компонент використовує EmailJS для відправки даних форми (включаючи файл, якщо його додано). Після успішної відправки форму буде очищено.
+
+Вимоги
+React версії 16.8 або новішої (потрібен useState і useEffect).
+EmailJS для надсилання електронних листів.
+react-icons (опціонально для кастомних іконок).
+
+Ліцензія
+Компонент є відкритим для використання та поширення відповідно до умов ліцензії MIT.
+```

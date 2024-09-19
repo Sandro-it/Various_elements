@@ -4,13 +4,13 @@
   width: 60px;
   height: 26px;
   border-radius: 50px;
-  background-color: #031a3b; /* Темно-сіро-синій фон */
+  background-color: #3d5c86;
   transition: background-color 0.5s;
   cursor: pointer;
 }
 
 .theme-switcher input {
-  display: none; /* Приховуємо стандартний чекбокс */
+  display: none;
 }
 
 .theme-switcher label {
@@ -33,13 +33,13 @@
 .theme-switcher .iconSun {
   width: 17px;
   height: 17px;
-  color: #fdba03; /* Жовтий колір для сонця та місяця */
+  color: #fdba03;
 }
 
 .theme-switcher .iconMoon {
   width: 15px;
   height: 15px;
-  color: #fdba03; /* Жовтий колір для сонця та місяця */
+  color: #fdba03;
 }
 
 .theme-switcher .iconSun {

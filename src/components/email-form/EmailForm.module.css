@@ -1,0 +1,169 @@
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: var(--text-color, #132946); /* Стандартний колір для світлої теми */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--input-border-color, #ccc); /* Стандартний бордюр для світлої теми */
+  border-radius: 5px;
+  background-color: var(
+    --input-bg-color,
+    #fff
+  ); /* Стандартний фон для світлої теми */
+  color: var(--input-text-color, #000); /* Стандартний текст для світлої теми */
+  font-family: "Exo 2", sans-serif;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+textarea {
+  resize: none;
+}
+
+.inputError {
+  border-color: red;
+}
+
+.errorText {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(
+    --button-bg-color,
+    #132946
+  ); /* Стандартний колір кнопки */
+  color: var(--button-text-color, white); /* Стандартний текст кнопки */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover,
+button:focus {
+  background-color: var(
+    --button-hover-bg-color,
+    #244e86
+  ); /* Колір при наведенні */
+  color: var(--button-hover-text-color, #ffffff); /* Текст при наведенні */
+}
+
+button:disabled {
+  background-color: #777;
+}
+
+/* Стилі для кнопки вибору файлу */
+.fileGroup {
+  display: flex;
+  align-items: center;
+}
+
+.fileLabel {
+  position: relative;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.fileButton {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--button-bg-color, #132946);
+  color: var(--button-text-color, white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.fileButton:hover,
+.fileButton:focus {
+  background-color: var(--button-hover-bg-color, #244e86);
+  color: var(--button-hover-text-color, #ffffff);
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileName {
+  font-size: 14px;
+  color: var(--text-color, #132946);
+}
+
+/* Темна тема через клас html.dark */
+html.dark body {
+  --background-color: #1e1e1e;
+  --text-color: #ccc;
+  --input-bg-color: #333;
+  --input-text-color: #fff;
+  --input-border-color: #555;
+  --button-bg-color: #444;
+  --button-text-color: #fff;
+  --button-hover-bg-color: #666;
+  --button-hover-text-color: #ffffff;
+}
+
+html.dark body {
+  background-color: var(--background-color) !important;
+}
+
+html.dark input,
+html.dark textarea {
+  background-color: var(--input-bg-color) !important;
+  color: var(--input-text-color) !important;
+  border: 1px solid var(--input-border-color) !important;
+}
+
+html.dark input:focus,
+html.dark input:hover,
+html.dark textarea:focus,
+html.dark textarea:hover {
+  border-color: #777 !important;
+}
+
+html.dark label {
+  color: var(--text-color) !important;
+}
+
+html.dark .inputError {
+  border-color: #ff6b6b !important;
+}
+
+html.dark .errorText {
+  color: #ff6b6b !important;
+}
+
+html.dark .fileButton {
+  background-color: var(--button-bg-color) !important;
+  color: var(--button-text-color) !important;
+}
+
+html.dark .fileButton:hover,
+html.dark .fileButton:focus {
+  background-color: var(--button-hover-bg-color) !important;
+  color: var(--button-hover-text-color) !important;
+}
+
+html.dark .fileName {
+  color: var(--text-color) !important;
+}

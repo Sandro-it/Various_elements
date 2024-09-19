@@ -1,0 +1,61 @@
+[data-theme="dark"] .contactForm {
+  display: flex;
+  flex-direction: column;
+}
+
+[data-theme="dark"] .formGroup {
+  margin-bottom: 15px;
+}
+
+[data-theme="dark"] label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+  color: #ccc; /* Світлий текст для темної теми */
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #555;
+  background-color: #333; /* Темний фон */
+  color: #fff; /* Білий текст */
+  border-radius: 5px;
+  font-family: "Exo 2", sans-serif;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] textarea {
+  resize: none;
+}
+
+[data-theme="dark"] .inputError {
+  border-color: #ff6b6b;
+}
+
+[data-theme="dark"] .errorText {
+  color: #ff6b6b;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+[data-theme="dark"] button {
+  padding: 10px 20px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] button:hover,
+[data-theme="dark"] button:focus {
+  background-color: #666;
+  color: #ffffff;
+}
+
+[data-theme="dark"] button:disabled {
+  background-color: #777;
+}

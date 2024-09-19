@@ -1,12 +1,13 @@
 :root {
   --background-color: #1e1e1e;
   --text-color: #ffffff;
-  --switch-bg-color: #191a25;
+  --switch-bg-color: #3d5c86;
 }
 
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
 }
 
 .theme-switcher {

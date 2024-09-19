@@ -1,15 +1,14 @@
-import ThemeSwitcher from "./components/ThemeSwitcher";
-
+import ThemeSwitcher from "./components/theme-switcher/ThemeSwitcher";
+import EmailForm from "./components/email-form/EmailForm";
 import "./App.css";
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
     <div className="App">
       {/* Використовуємо компонент ThemeSwitcher */}
       <ThemeSwitcher />
       {/* Можливо інші елементи вашого додатку */}
+      <EmailForm />
     </div>
   );
 }
